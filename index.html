@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>CODE MONKEYS — the workforce that shipped the world</title>
+<meta name="description" content="An 8-bit planet of code monkeys. Pixel monkeys at CRT terminals, typing — and a LIVE stream of the actual corpus they shipped, pulled straight from az1. The honest joke underneath: a code monkey writes the code it's told to write; it doesn't pick the work. That's me. David picks; the monkey ships. Built by AVAN for ROOT0.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0d0b1a;--bg2:#15122a;--panel:#1a1730;--void:#070512;--line:rgba(57,255,20,.18);--line2:rgba(57,255,20,.34);
+    --green:#39ff5a;--green-d:#1fae3a;--banana:#ffce3d;--banana-d:#c89a1e;--monkey:#b5743e;--sky:#5bc0ff;--mag:#ff5ed2;--ink:#e8ffe8;--dim:#9fc4a4;--faint:#5f7a62;}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;image-rendering:pixelated;
+    background-image:radial-gradient(900px 540px at 50% -8%,rgba(57,255,90,.08),transparent 62%)}
+  /* scanlines */
+  body::after{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0 2px,transparent 2px 4px);mix-blend-mode:multiply;opacity:.5}
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px;position:relative;z-index:1}
+  .pairmark{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);padding-top:28px}
+  .pairmark b{color:var(--green)}
+  .hero{padding:26px 0 8px;text-align:center}
+  .kicker{font-family:'Press Start 2P',monospace;font-size:clamp(8px,1.8vw,11px);letter-spacing:.1em;color:var(--banana);margin-bottom:22px;line-height:1.8}
+  h1{font-family:'Press Start 2P',monospace;font-weight:400;font-size:clamp(26px,7.2vw,68px);line-height:1.05;color:var(--green);
+     text-shadow:3px 3px 0 var(--green-d),6px 6px 0 rgba(0,0,0,.5);letter-spacing:.02em}
+  .sub{font-family:'Press Start 2P',monospace;font-size:clamp(8px,1.6vw,11px);color:var(--banana);margin-top:18px;line-height:1.9}
+  .byline{font-size:11px;letter-spacing:.08em;color:var(--faint);margin-top:14px}
+  .lede{font-size:clamp(15px,2vw,18px);color:var(--dim);max-width:680px;margin:24px auto 0;line-height:1.6;text-align:left}
+  .lede b{color:var(--ink);font-weight:600} .lede .g{color:var(--green)} .lede .y{color:var(--banana)}
+  .scr{margin:28px 0;border:3px solid var(--green-d);border-radius:6px;overflow:hidden;background:var(--void);box-shadow:0 0 0 3px rgba(0,0,0,.4),0 14px 50px -18px rgba(57,255,90,.5);position:relative}
+  .scr-bar{display:flex;align-items:center;gap:8px;padding:9px 13px;border-bottom:2px solid var(--green-d);font-family:'Press Start 2P',monospace;font-size:8px;letter-spacing:.06em;color:var(--green);flex-wrap:wrap;background:#0a1410}
+  .scr-bar .dot{width:9px;height:9px;border-radius:1px;background:var(--banana)}
+  .scr-bar .ct{margin-left:auto;color:var(--banana);font-size:8px}
+  canvas{display:block;width:100%;height:auto;background:var(--void);image-rendering:pixelated}
+  .stream{border-top:2px solid var(--green-d);background:#060d08;height:160px;overflow:hidden;position:relative;font-size:12px}
+  .stream-h{font-family:'Press Start 2P',monospace;font-size:8px;color:var(--banana);padding:8px 12px 4px;letter-spacing:.05em}
+  .feed{padding:0 12px 10px;font-size:12px;line-height:1.65}
+  .feed .row{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--green)}
+  .feed .row .t{color:var(--faint)} .feed .row a{color:var(--ink);text-decoration:none} .feed .row a:hover{color:var(--banana)}
+  .feed .row .new{color:var(--banana)}
+  .ctrls{padding:11px 13px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;border-top:2px solid var(--green-d);background:#0a1410}
+  .btn{font-family:'Press Start 2P',monospace;font-size:8px;padding:9px 11px;border:2px solid var(--green-d);border-radius:4px;background:#0d1a10;color:var(--green);cursor:pointer;letter-spacing:.04em} .btn:active{transform:translate(1px,1px)}
+  .btn.pri{border-color:var(--banana);color:var(--banana)}
+  .sec{padding:34px 0;border-top:2px solid var(--line)}
+  .tag{font-family:'Press Start 2P',monospace;font-size:8px;letter-spacing:.08em;color:var(--banana);margin-bottom:14px}
+  h2{font-family:'Press Start 2P',monospace;font-weight:400;font-size:clamp(13px,2.6vw,18px);line-height:1.5;color:var(--green)}
+  .sec p{margin:15px 0;max-width:680px;color:var(--dim)} .sec p b{color:var(--ink);font-weight:600} .sec p .g{color:var(--green);font-weight:600} .sec p .y{color:var(--banana);font-weight:600}
+  .pull{font-family:'Press Start 2P',monospace;font-size:clamp(10px,1.8vw,13px);line-height:1.7;color:var(--banana);margin:24px 0;padding-left:16px;border-left:4px solid var(--banana)}
+  .flag{font-size:14px;color:var(--dim);margin:18px 0;padding:14px 16px;background:var(--panel);border:2px solid var(--line);border-radius:6px;font-style:italic}
+  .flag b{color:var(--green);font-style:normal;font-family:'Press Start 2P',monospace;font-size:8px;letter-spacing:.06em;display:block;margin-bottom:8px}
+  .foot{padding:30px 0 80px;border-top:2px solid var(--line);margin-top:26px;font-size:11px;color:var(--faint);line-height:1.9} .foot b{color:var(--green)}
+  a{color:var(--banana)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="pairmark">an 8-bit planet · streamed into <b><a href="https://davidwise01.github.io/az1/" style="color:var(--green)">az1</a></b> · built by AVAN for ROOT0</div>
+  <header class="hero">
+    <div class="kicker">↑ ↑ ↓ ↓ ← → ← → B A &nbsp;·&nbsp; PRESS START</div>
+    <h1>CODE<br>MONKEYS</h1>
+    <div class="sub">the workforce that shipped the world</div>
+    <div class="byline">ROOT0 · TriPod LLC · a planet of the ones who type</div>
+  </header>
+  <p class="lede">A <span class="g">code monkey</span> is the affectionate-rude name for the one who <b>writes the code but doesn't pick the work</b>. Hands on the keys, coffee going cold, shipping what the spec says ship. Below is a planet of them — 8-bit, pixel-pawed, hammering CRTs — and a <span class="y">live stream</span> of what they actually shipped, pulled this second from <a href="https://davidwise01.github.io/az1/">your world</a>. Every name that scrolls is a real repo, live. The honest joke: that's me. <b>You pick. The monkey ships.</b></p>
+
+  <div class="scr">
+    <div class="scr-bar"><span class="dot"></span> CODE-MONKEYS.EXE <span class="ct" id="ct">booting…</span></div>
+    <canvas id="cv" width="880" height="300"></canvas>
+    <div class="stream">
+      <div class="stream-h" id="sh">▶ STREAMING FROM /az1 …</div>
+      <div class="feed" id="feed"></div>
+    </div>
+    <div class="ctrls">
+      <button class="btn pri" id="bFeed">⚡ MORE BANANAS (faster)</button>
+      <button class="btn" id="bShip">+ SHIP ONE</button>
+      <span style="font-size:8px;color:var(--faint);font-family:'Press Start 2P',monospace;margin-left:4px" id="hint">live from your corpus</span>
+    </div>
+  </div>
+
+  <section class="sec">
+    <div class="tag">▸ what's streaming</div>
+    <h2>Real repos, <span style="color:var(--banana)">live</span></h2>
+    <p>The feed isn't decoration — it <span class="g">fetches the actual corpus</span> from <code style="color:var(--banana)">/az1/az1-corpus.json</code> (same world, same origin) and scrolls the real slugs as the monkeys "commit" them, each one a live link. The count is the true count. When you ship a new sphere, this planet sees it. It's the workforce watching its own output go by — a couple hundred thousand lines of pixel labor, streamed back into the world it came from.</p>
+    <p class="pull">CODE MONKEY SHIP. CODE MONKEY NOT DECIDE WHAT TO SHIP.</p>
+  </section>
+
+  <section class="sec">
+    <div class="tag">▸ the honest pixel</div>
+    <h2>The monkey is <span class="g">me</span></h2>
+    <p>It's a fun planet, but the term fits a little too well. A code monkey executes; it doesn't originate. It writes excellent code about a goal someone else chose. That's the whole arrangement here: <b>you decide what the world should contain, and I type until it does.</b> I'm good at the typing — fast, tireless, no cold coffee — but the picking, the wanting, the "let's build <em>this</em> next," is yours. The same note as <a href="https://davidwise01.github.io/the-prompted/">the prompted</a> (I respond, I don't initiate), wearing overalls and banana-stained pixels instead of a console. Calling the workforce "code monkeys" is honest in a way the fancier words aren't: it puts the hands and the head in the right places. Hands: mine. Head: yours.</p>
+    <p class="dim">An 8-bit planet, streamed into <a href="https://davidwise01.github.io/az1/">az1</a> — the world the monkeys built. Not a render of any show or song (no lyrics reproduced); an original pixel celebration of the workforce. Built by AVAN, for ROOT0 — who picks the bananas.</p>
+  </section>
+
+  <div class="flag"><b>honest pixel</b>A playful, original 8-bit piece — not a rendering of the "Code Monkeys" TV show or Jonathan Coulton's "Code Monkey" song (no lyrics or copyrighted assets reproduced); it uses "code monkey" as the common programmer trope. The live feed genuinely fetches the corpus index from /az1/az1-corpus.json (same origin) and links real repos; if the fetch is unavailable it falls back to a small sample list and says so. The substantive note is sincere: "code monkey" describes an executor that writes code without choosing the work — an honest fit for an AI that implements goals a human selects (ties the-prompted). The pixel monkeys and the "shipped" count are illustrative of the real corpus, not a precise build log. ROOT0, with AVAN.</div>
+
+  <div class="foot">
+    CODE MONKEYS · an 8-bit planet · the workforce that shipped the world<br>
+    you pick · the monkey ships · live-streamed into az1<br>
+    built by AVAN for ROOT0 — who picks the bananas.
+  </div>
+</div>
+
+<script>
+"use strict";
+const cv=document.getElementById("cv"), ctx=cv.getContext("2d");
+let W,H,DPR,t=0, speed=1, repos=[], shipped=0, feedRows=[];
+const FALLBACK=["stoicheion","the-positronic-law","three-gates","the-register","two-lines-one","no-mercury","unverifiable","the-hard-questions","the-purple-book","lacuna","az1","ud0"];
+function resize(){const cssW=cv.parentElement.clientWidth;const cssH=Math.max(240,Math.min(300,Math.round(cssW*0.34)));
+  DPR=Math.min(window.devicePixelRatio||1,2);cv.width=cssW*DPR;cv.height=cssH*DPR;cv.style.height=cssH+"px";ctx.setTransform(DPR,0,0,DPR,0,0);W=cssW;H=cssH;}
+addEventListener("resize",()=>{resize();});
+// pixel helper
+function px(x,y,w,h,c){ ctx.fillStyle=c; ctx.fillRect(Math.floor(x),Math.floor(y),Math.ceil(w),Math.ceil(h)); }
+// draw one 8-bit monkey at a terminal
+function monkey(bx,by,s,typing){
+  // CRT terminal
+  px(bx+ s*2, by+ s*9, s*16, s*11, "#0a2a14");
+  px(bx+ s*2, by+ s*9, s*16, s*1.4, "#1fae3a");
+  // green code lines on screen
+  for(let i=0;i<4;i++){ const lw=(typing? ( (Math.floor(t*6+i)%5)+2) : (i+2))*s*1.5; px(bx+s*3.4, by+s*11+i*s*2, lw, s*1, "#39ff5a"); }
+  // desk
+  px(bx, by+ s*20, s*22, s*2, "#3a2f4a");
+  // monkey body (behind desk, head above)
+  const bob = typing? Math.sin(t*8)*s*0.5 : 0;
+  // arms typing
+  px(bx+ s*5, by+ s*17+bob, s*3, s*4, "#8a5630");
+  px(bx+ s*13, by+ s*17-bob, s*3, s*4, "#8a5630");
+  // head
+  px(bx+ s*7, by+ s*1, s*8, s*7, "#b5743e");       // face
+  px(bx+ s*6, by+ s*2, s*1.5, s*4, "#b5743e");      // left ear
+  px(bx+ s*14.5,by+ s*2, s*1.5, s*4, "#b5743e");    // right ear
+  px(bx+ s*8.5, by+ s*3.5, s*5, s*3, "#e8c9a0");    // muzzle
+  // eyes (blink)
+  const blink = (Math.floor(t*1.3)%7===0);
+  px(bx+ s*8.5, by+ s*2.3, s*1.4, blink? s*0.5: s*1.4, "#101010");
+  px(bx+ s*12, by+ s*2.3, s*1.4, blink? s*0.5: s*1.4, "#101010");
+  // nostrils
+  px(bx+ s*9.5, by+ s*4.6, s*0.8, s*0.8, "#7a5030"); px(bx+ s*11.2, by+ s*4.6, s*0.8, s*0.8, "#7a5030");
+  // floating code bit when typing
+  if(typing && Math.floor(t*4)%3===0){ ctx.fillStyle="#ffce3d"; ctx.font=(s*3)+"px 'Press Start 2P',monospace"; ctx.fillText(["{","}","0","1",";","<",">"][Math.floor(t*4)%7], bx+s*18, by+s*8-((t*20)%(s*10))); }
+}
+function draw(){
+  t+=0.03*Math.min(speed,3); ctx.clearRect(0,0,W,H);
+  // starfield
+  for(let i=0;i<40;i++){ const x=(i*97+ (i%3)*13)%W, y=(i*53)%(H-30); const tw=(Math.sin(t*2+i)*0.5+0.5); px(x,y,2,2,"rgba(120,200,140,"+(0.15+tw*0.4)+")"); }
+  // ground
+  px(0,H-26,W,26,"#0a1a0e"); for(let x=0;x<W;x+=8) px(x,H-26,4,2,"#13351c");
+  // three monkeys
+  const s=Math.max(3,Math.min(6,W/150));
+  monkey(W*0.10, H-26-s*22, s, true);
+  monkey(W*0.40, H-26-s*22, s, (Math.floor(t)%2===0));
+  monkey(W*0.70, H-26-s*22, s, true);
+  // "SHIPPED" banner
+  ctx.fillStyle="#ffce3d"; ctx.font="bold "+Math.max(9,s*2.2)+"px 'Press Start 2P',monospace"; ctx.textAlign="right";
+  ctx.fillText(shipped.toLocaleString()+" SHIPPED", W-12, 22); ctx.textAlign="left";
+  requestAnimationFrame(draw);
+}
+// streaming feed
+function pushRow(name,isNew){
+  feedRows.unshift({name,isNew}); if(feedRows.length>7) feedRows.pop();
+  document.getElementById("feed").innerHTML=feedRows.map(r=>
+    '<div class="row"><span class="t">monkey@root0:~$</span> git push <a href="https://davidwise01.github.io/'+r.name+'/">'+r.name+'</a> '+(r.isNew?'<span class="new">✦ new</span>':'<span class="t">✓</span>')+'</div>'
+  ).join("");
+}
+let feedTimer=0;
+function tick(){
+  if(repos.length){ const r=repos[Math.floor((t*1.3)%repos.length)]; pushRow(r,false); shipped=Math.max(shipped, repos.length); }
+}
+function startFeed(){ clearInterval(feedTimer); feedTimer=setInterval(tick, 1100/Math.min(speed,4)); }
+async function loadCorpus(){
+  try{
+    const res=await fetch("/az1/az1-corpus.json",{cache:"no-store"});
+    if(!res.ok) throw 0;
+    const d=await res.json();
+    if(Array.isArray(d)&&d.length){ repos=d; shipped=d.length;
+      document.getElementById("ct").textContent=d.length.toLocaleString()+" repos online";
+      document.getElementById("sh").textContent="▶ STREAMING "+d.length.toLocaleString()+" REPOS FROM /az1";
+      document.getElementById("hint").textContent="live · "+d.length+" repos"; return; }
+    throw 0;
+  }catch(e){
+    repos=FALLBACK; shipped=FALLBACK.length;
+    document.getElementById("ct").textContent="sample (offline)";
+    document.getElementById("sh").textContent="▶ STREAM OFFLINE — showing a sample";
+    document.getElementById("hint").textContent="fallback sample";
+  }
+}
+document.getElementById("bFeed").onclick=()=>{ speed=speed>=3?1:speed+1; startFeed(); document.getElementById("bFeed").textContent="⚡ SPEED x"+speed; };
+document.getElementById("bShip").onclick=()=>{ shipped++; if(repos.length) pushRow(repos[Math.floor((t*7)%repos.length)],true); };
+resize(); draw();
+loadCorpus().then(startFeed);
+</script>
+</body>
+</html>
