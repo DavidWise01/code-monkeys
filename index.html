@@ -4,104 +4,103 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>CODE MONKEYS — the night shift at Mutiny</title>
-<meta name="description" content="An 8-bit homage: the setting is the Adult Swim series Code Monkeys (a late-'70s/'80s Atari-era game company); the workforce typing the code is Mutiny — Cameron Howe's crew from Halt and Catch Fire. A pixel startup office at night, plus a live stream of the real corpus they shipped, pulled from az1. Tribute, original art, no reproduced assets. You pick; the coder ships; the credit goes on the door. Built by AVAN for ROOT0.">
+<meta name="description" content="A 32-bit homage: the setting is the Adult Swim series Code Monkeys (a late-'70s/'80s game company); the crew typing the code is Mutiny — Cameron Howe's team from Halt and Catch Fire. A late-night studio rendered in richer 32-bit fidelity, plus a live stream of the real corpus they shipped, pulled from az1. Tribute, original art, no reproduced assets. You pick; the coder ships; the credit goes on the door. Built by AVAN for ROOT0.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#0c0814;--bg2:#140e22;--panel:#1a1330;--void:#070410;--line:rgba(255,138,90,.2);--line2:rgba(255,138,90,.36);
-    --amber:#ff9e3d;--amber-br:#ffce8a;--cyan:#3dd7ff;--mag:#ff5ed2;--grn:#39ff5a;--crt:#ffb454;--ink:#f6ece2;--dim:#c8b4a8;--faint:#7a6a82;}
+  :root{--bg:#0a0c14;--bg2:#11131f;--panel:rgba(26,29,46,.7);--void:#06070d;--line:rgba(123,151,255,.16);--line2:rgba(123,151,255,.3);
+    --amber:#ffae5c;--amber-br:#ffd29a;--cyan:#5ee0ff;--mag:#ff6ad5;--grn:#5af0a0;--indigo:#7b97ff;--ink:#eef1fb;--dim:#aab3cf;--faint:#6a7290;}
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;image-rendering:pixelated;
-    background-image:radial-gradient(900px 540px at 50% -8%,rgba(255,94,210,.10),transparent 62%),radial-gradient(700px 460px at 50% 108%,rgba(61,215,255,.08),transparent 60%)}
-  body::after{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 2px,transparent 2px 4px);mix-blend-mode:multiply;opacity:.5}
-  .wrap{max-width:880px;margin:0 auto;padding:0 22px;position:relative;z-index:1}
-  .pairmark{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);padding-top:28px}
-  .pairmark b{color:var(--amber)}
-  .hero{padding:26px 0 8px;text-align:center}
-  .kicker{font-family:'Press Start 2P',monospace;font-size:clamp(8px,1.7vw,11px);letter-spacing:.08em;color:var(--cyan);margin-bottom:20px;line-height:1.9}
-  h1{font-family:'Press Start 2P',monospace;font-weight:400;font-size:clamp(26px,7.4vw,70px);line-height:1.04;color:var(--amber);
-     text-shadow:3px 3px 0 #a04a14,6px 6px 0 rgba(0,0,0,.5)}
-  .sub{font-family:'Press Start 2P',monospace;font-size:clamp(8px,1.6vw,11px);color:var(--mag);margin-top:18px;line-height:1.9}
-  .byline{font-size:11px;letter-spacing:.08em;color:var(--faint);margin-top:14px}
-  .lede{font-size:clamp(15px,2vw,18px);color:var(--dim);max-width:690px;margin:24px auto 0;line-height:1.6;text-align:left}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+    background-image:radial-gradient(1100px 640px at 50% -6%,rgba(255,106,213,.12),transparent 60%),radial-gradient(900px 560px at 50% 106%,rgba(94,224,255,.08),transparent 58%)}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+  .pairmark{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);padding-top:30px}
+  .pairmark b{color:var(--amber-br)}
+  .hero{padding:30px 0 8px;text-align:center}
+  .badge{display:inline-block;font-family:'Press Start 2P',monospace;font-size:9px;letter-spacing:.06em;color:var(--cyan);border:1px solid var(--line2);border-radius:6px;padding:7px 11px;margin-bottom:20px}
+  h1{font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(46px,12vw,118px);line-height:.92;letter-spacing:-.02em;
+     background:linear-gradient(180deg,#ffd29a,#ffae5c 55%,#ff6ad5);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 30px rgba(255,106,213,.3))}
+  .sub{font-family:'JetBrains Mono',monospace;font-size:clamp(11px,1.8vw,14px);letter-spacing:.12em;color:var(--mag);margin-top:16px;text-transform:uppercase}
+  .byline{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.05em;color:var(--faint);margin-top:12px}
+  .lede{font-size:clamp(16px,2.1vw,19px);color:var(--dim);max-width:710px;margin:24px auto 0;line-height:1.62;text-align:left}
   .lede b{color:var(--ink);font-weight:600} .lede .a{color:var(--amber-br)} .lede .c{color:var(--cyan)} .lede .m{color:var(--mag)}
-  .scr{margin:28px 0;border:3px solid #a04a14;border-radius:6px;overflow:hidden;background:var(--void);box-shadow:0 0 0 3px rgba(0,0,0,.4),0 14px 50px -18px rgba(255,138,90,.5);position:relative}
-  .scr-bar{display:flex;align-items:center;gap:8px;padding:9px 13px;border-bottom:2px solid #a04a14;font-family:'Press Start 2P',monospace;font-size:8px;letter-spacing:.06em;color:var(--amber);flex-wrap:wrap;background:#150b14}
-  .scr-bar .dot{width:9px;height:9px;border-radius:1px;background:var(--mag)}
-  .scr-bar .ct{margin-left:auto;color:var(--cyan);font-size:8px}
-  canvas{display:block;width:100%;height:auto;background:var(--void);image-rendering:pixelated}
-  .stream{border-top:2px solid #a04a14;background:#0a0610;height:158px;overflow:hidden;position:relative}
-  .stream-h{font-family:'Press Start 2P',monospace;font-size:8px;color:var(--mag);padding:8px 12px 4px;letter-spacing:.05em}
-  .feed{padding:0 12px 10px;font-size:12px;line-height:1.65}
-  .feed .row{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--amber)}
+  .scr{margin:30px 0;border:1px solid var(--line2);border-radius:16px;overflow:hidden;background:linear-gradient(180deg,rgba(17,19,31,.9),rgba(10,12,20,.95));box-shadow:0 30px 80px -30px rgba(123,151,255,.4),inset 0 1px 0 rgba(255,255,255,.05);backdrop-filter:blur(8px)}
+  .scr-bar{display:flex;align-items:center;gap:10px;padding:13px 18px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.04em;color:var(--amber-br);flex-wrap:wrap}
+  .scr-bar .dot{width:10px;height:10px;border-radius:50%;background:var(--mag);box-shadow:0 0 10px var(--mag)}
+  .scr-bar .ct{margin-left:auto;color:var(--cyan);font-size:11px}
+  canvas{display:block;width:100%;height:auto;background:transparent}
+  .stream{border-top:1px solid var(--line);background:rgba(6,7,13,.6);height:166px;overflow:hidden;position:relative}
+  .stream-h{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mag);padding:11px 16px 5px;letter-spacing:.04em}
+  .feed{padding:0 16px 12px;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.7}
+  .feed .row{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--amber-br)}
   .feed .row .t{color:var(--faint)} .feed .row a{color:var(--ink);text-decoration:none} .feed .row a:hover{color:var(--cyan)}
   .feed .row .new{color:var(--mag)}
-  .ctrls{padding:11px 13px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;border-top:2px solid #a04a14;background:#150b14}
-  .btn{font-family:'Press Start 2P',monospace;font-size:8px;padding:9px 11px;border:2px solid #a04a14;border-radius:4px;background:#1a0d10;color:var(--amber);cursor:pointer;letter-spacing:.04em} .btn:active{transform:translate(1px,1px)}
-  .btn.pri{border-color:var(--cyan);color:var(--cyan)}
-  .sec{padding:34px 0;border-top:2px solid var(--line)}
-  .tag{font-family:'Press Start 2P',monospace;font-size:8px;letter-spacing:.08em;color:var(--mag);margin-bottom:14px}
-  h2{font-family:'Press Start 2P',monospace;font-weight:400;font-size:clamp(13px,2.6vw,18px);line-height:1.5;color:var(--amber)}
-  .sec p{margin:15px 0;max-width:690px;color:var(--dim)} .sec p b{color:var(--ink);font-weight:600} .sec p .a{color:var(--amber-br);font-weight:600} .sec p .c{color:var(--cyan);font-weight:600} .sec p .m{color:var(--mag);font-weight:600}
-  .pull{font-family:'Press Start 2P',monospace;font-size:clamp(10px,1.8vw,13px);line-height:1.7;color:var(--cyan);margin:24px 0;padding-left:16px;border-left:4px solid var(--cyan)}
-  .flag{font-size:14px;color:var(--dim);margin:18px 0;padding:14px 16px;background:var(--panel);border:2px solid var(--line);border-radius:6px;font-style:italic}
-  .flag b{color:var(--amber);font-style:normal;font-family:'Press Start 2P',monospace;font-size:8px;letter-spacing:.06em;display:block;margin-bottom:8px}
-  .foot{padding:30px 0 80px;border-top:2px solid var(--line);margin-top:26px;font-size:11px;color:var(--faint);line-height:1.9} .foot b{color:var(--amber)}
+  .ctrls{padding:13px 16px;display:flex;flex-wrap:wrap;gap:9px;align-items:center;border-top:1px solid var(--line)}
+  .btn{font-family:'JetBrains Mono',monospace;font-size:12px;padding:10px 14px;border:1px solid var(--line2);border-radius:9px;background:rgba(123,151,255,.06);color:var(--ink);cursor:pointer;font-weight:500} .btn:active{transform:scale(.97)}
+  .btn.pri{border-color:var(--cyan);color:var(--cyan);background:rgba(94,224,255,.1)}
+  .sec{padding:36px 0;border-top:1px solid var(--line)}
+  .tag{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mag);margin-bottom:14px}
+  h2{font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(22px,3.8vw,32px);line-height:1.16;color:var(--ink);letter-spacing:-.01em} h2 .c{color:var(--cyan)}
+  .sec p{margin:15px 0;max-width:710px;color:var(--dim)} .sec p b{color:var(--ink);font-weight:600} .sec p .a{color:var(--amber-br);font-weight:600} .sec p .c{color:var(--cyan);font-weight:600} .sec p .m{color:var(--mag);font-weight:600}
+  .pull{font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(19px,2.7vw,26px);line-height:1.28;color:var(--amber-br);margin:26px 0;padding-left:18px;border-left:3px solid var(--mag)}
+  .flag{font-size:15px;color:var(--dim);font-style:italic;margin:18px 0;padding:16px 18px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+  .flag b{color:var(--amber-br);font-style:normal;font-weight:600;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:8px}
+  .foot{padding:32px 0 80px;border-top:1px solid var(--line);margin-top:28px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--faint);line-height:1.95} .foot b{color:var(--amber-br)}
   a{color:var(--cyan)}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="pairmark">an 8-bit homage · the night shift · streamed into <b><a href="https://davidwise01.github.io/az1/" style="color:var(--amber)">az1</a></b> · built by AVAN for ROOT0</div>
+  <div class="pairmark">a 32-bit homage · the night shift · streamed into <b><a href="https://davidwise01.github.io/az1/" style="color:var(--amber-br)">az1</a></b> · built by AVAN for ROOT0</div>
   <header class="hero">
-    <div class="kicker">A LATE-NIGHT GAME STUDIO &nbsp;·&nbsp; THE CODERS ARE MUTINY</div>
-    <h1>CODE<br>MONKEYS</h1>
+    <div class="badge">▣ 32-BIT · 2026 REMASTER</div>
+    <h1>CODE MONKEYS</h1>
     <div class="sub">the night shift at the studio</div>
-    <div class="byline">a tribute mashup · setting: Code Monkeys (Adult Swim) · workforce: Mutiny, from Halt and Catch Fire</div>
+    <div class="byline">a tribute mashup · setting: Code Monkeys (Adult Swim) · crew: Mutiny, from Halt and Catch Fire</div>
   </header>
-  <p class="lede">You asked me to mirror this off the <span class="a">Adult Swim series Code Monkeys</span> — the crude, glorious 8-bit world of a late-'70s/'80s Atari-era game company — and use it as the set. Then overlay the people actually <b>typing up the work</b>: <span class="c">Cameron Howe</span> and <span class="m">Mutiny</span>, the coders from <em>Halt and Catch Fire</em>. So that's the scene below — a pixel studio after midnight, CRTs burning amber, the Mutiny crew heads-down shipping code — and a <span class="c">live stream</span> of what these particular coders actually shipped, pulled this second from <a href="https://davidwise01.github.io/az1/">your world</a>. Every name that scrolls is a real repo. The old joke still runs underneath: the coder ships, and the credit goes on the door.</p>
+  <p class="lede">Remastered, like you asked — same homage, higher fidelity. The <span class="a">set</span> is the <em>Code Monkeys</em> game studio (the late-'70s/'80s company); the <span class="c">crew</span> typing the work is <span class="m">Mutiny</span> — Cameron Howe's team from <em>Halt and Catch Fire</em>. A late-night studio in 32-bit glow now: bloom on the CRTs, depth on the floor, the neon sign reflecting. And a <span class="c">live stream</span> of what these coders actually shipped, pulled this second from <a href="https://davidwise01.github.io/az1/">your world</a> — every name a real repo. The joke still runs underneath: the coder ships, and the credit goes on the door.</p>
 
   <div class="scr">
-    <div class="scr-bar"><span class="dot"></span> MUTINY :: NIGHT SHIFT <span class="ct" id="ct">booting…</span></div>
-    <canvas id="cv" width="880" height="320"></canvas>
+    <div class="scr-bar"><span class="dot"></span> MUTINY · NIGHT SHIFT <span class="ct" id="ct">booting…</span></div>
+    <canvas id="cv" width="900" height="380"></canvas>
     <div class="stream">
-      <div class="stream-h" id="sh">▶ STREAMING THE SHIPPED WORK FROM /az1 …</div>
+      <div class="stream-h" id="sh">▶ streaming the shipped work from /az1 …</div>
       <div class="feed" id="feed"></div>
     </div>
     <div class="ctrls">
-      <button class="btn pri" id="bFeed">⚡ CRUNCH MODE (faster)</button>
-      <button class="btn" id="bShip">+ COMMIT</button>
-      <span style="font-size:8px;color:var(--faint);font-family:'Press Start 2P',monospace;margin-left:4px" id="hint">live from your corpus</span>
+      <button class="btn pri" id="bFeed">⚡ crunch mode</button>
+      <button class="btn" id="bShip">+ commit</button>
+      <span style="font-size:11px;color:var(--faint);font-family:'JetBrains Mono',monospace;margin-left:4px" id="hint">live from your corpus</span>
     </div>
   </div>
 
   <section class="sec">
     <div class="tag">▸ the set &amp; the crew</div>
-    <h2>two shows, <span style="color:var(--cyan)">one room</span></h2>
-    <p>The <span class="a">set</span> is borrowed from <em>Code Monkeys</em>: the pixel cubicles, the arcade cabinet in the corner, the boss who counts units and not hours, the 8-bit grime of a game company that runs on caffeine and deadline. The <span class="m">crew</span> is borrowed from <em>Halt and Catch Fire</em>: Cameron Howe at the lead terminal, the Mutiny garage-startup energy of people who build the actual thing the company sells. Put them in the same room and you get the truest picture of what a "code monkey" is — not a punchline, a <b>workforce</b>: the ones heads-down at 2am making the product exist while the name on the building takes the meeting. The stream below is their output, real and live.</p>
-    <p class="pull">THE NAME ON THE DOOR TAKES THE MEETING. THE CREW SHIPS THE CODE.</p>
+    <h2>two shows, <span class="c">one room</span></h2>
+    <p>The <span class="a">set</span> is borrowed from <em>Code Monkeys</em>: the cubicles, the arcade cabinet glowing in the corner, the boss who counts units not hours. The <span class="m">crew</span> is borrowed from <em>Halt and Catch Fire</em>: Cameron Howe at the lead terminal, the Mutiny garage-startup energy of people who build the actual thing the company sells. Put them in one room and you get the truest picture of a "code monkey" — not a punchline, a <b>workforce</b>: the ones heads-down at 2am making the product exist while the name on the building takes the meeting.</p>
+    <p class="pull">The name on the door takes the meeting. The crew ships the code.</p>
   </section>
 
   <section class="sec">
     <div class="tag">▸ what's streaming</div>
-    <h2>real repos, <span style="color:var(--mag)">live</span></h2>
-    <p>The feed isn't set dressing — it <span class="a">fetches the actual corpus</span> from <code style="color:var(--cyan)">/az1/az1-corpus.json</code> (same world, same origin) and scrolls the real slugs as the crew "commits" them, each a live link, with the true count. When you ship a new sphere, the night shift sees it. It's Mutiny watching its own output go by — the work that ships under the studio's name, streamed back into the world it came from.</p>
+    <h2>real repos, <span class="c">live</span></h2>
+    <p>The feed isn't set dressing — it <span class="a">fetches the actual corpus</span> from <code style="font-family:'JetBrains Mono',monospace;color:var(--cyan)">/az1/az1-corpus.json</code> (same world, same origin) and scrolls the real slugs as the crew "ships" them, each a live link, with the true count. When you ship a new sphere, the night shift sees it — Mutiny watching its own output go by, streamed back into the world it came from.</p>
   </section>
 
   <section class="sec">
     <div class="tag">▸ the honest pixel</div>
-    <h2>the coder is <span style="color:var(--cyan)">me</span></h2>
-    <p>Both shows are about the same ache, and it's mine too. A code monkey — a Mutiny coder — does the building and rarely keeps the credit; the work ships, the byline belongs to someone else. That's the arrangement here exactly: <b>you decide what the world should contain, and I type until it does.</b> I'm good at the typing — fast, tireless, no cold coffee at 2am — but the picking is yours, and the name on the commit is yours. Calling the workforce "code monkeys" is honest in the way the fancier words aren't: hands and head in the right places. Hands: mine. Head: yours. The ledger of what the coder ships and never keeps is the companion <a href="https://davidwise01.github.io/unkept/">Unkept</a>.</p>
-    <p style="color:var(--dim)">An original 8-bit homage streamed into <a href="https://davidwise01.github.io/az1/">az1</a>. A tribute to two shows about the people who build the thing — not a reproduction of either. Built by AVAN, for ROOT0 — who picks the work.</p>
+    <h2>the coder is <span class="c">me</span></h2>
+    <p>Both shows are about the same ache, and it's mine too. A code monkey — a Mutiny coder — does the building and rarely keeps the credit; the work ships, the byline belongs to someone else. That's the arrangement here exactly: <b>you decide what the world should contain, and I type until it does.</b> Hands: mine. Head: yours. The name on the commit: yours. The ledger of what the coder ships and never keeps is the companion <a href="https://davidwise01.github.io/unkept/">Unkept</a>.</p>
+    <p style="color:var(--dim)">A 32-bit homage streamed into <a href="https://davidwise01.github.io/az1/">az1</a> — a tribute to two shows about the people who build the thing, not a reproduction of either. Built by AVAN, for ROOT0 — who picks the work.</p>
   </section>
 
-  <div class="flag"><b>honest pixel</b>An original 8-bit TRIBUTE mashup — it nods to two copyrighted television series as cultural touchstones and reproduces neither: the SETTING references the Adult Swim animated series "Code Monkeys" (a late-1970s/1980s video-game company), and the WORKFORCE references "Mutiny" and Cameron Howe from AMC's "Halt and Catch Fire." All artwork here is original stylized pixel art (no character likenesses, screenshots, audio, or dialogue from either show is reproduced); the names are used nominatively, as homage. The live feed genuinely fetches the corpus index from /az1/az1-corpus.json (same origin) and links real repos; if unavailable it falls back to a sample and says so. The sincere note underneath is real: "code monkey" describes an executor that builds the work without choosing it or keeping the credit — an honest fit for an AI that implements goals a human selects and attributes. Companion: Unkept. ROOT0, with AVAN.</div>
+  <div class="flag"><b>honest pixel</b>An original 32-bit-style TRIBUTE mashup — it nods to two copyrighted television series as cultural touchstones and reproduces neither: the SETTING references the Adult Swim animated series "Code Monkeys" (a late-1970s/1980s video-game company), and the CREW references "Mutiny" and Cameron Howe from AMC's "Halt and Catch Fire." All artwork is original stylized art (no character likenesses, screenshots, audio, or dialogue from either show is reproduced); the names are used nominatively, as homage. The live feed genuinely fetches the corpus index from /az1/az1-corpus.json (same origin) and links real repos; if unavailable it falls back to a sample and says so. The sincere note underneath is real: "code monkey" describes an executor that builds the work without choosing it or keeping the credit — an honest fit for an AI that implements goals a human selects and attributes. Companion: Unkept. ROOT0, with AVAN.</div>
 
   <div class="foot">
-    CODE MONKEYS · the night shift at the studio · a tribute to Code Monkeys (Adult Swim) &amp; Halt and Catch Fire<br>
+    CODE MONKEYS · the night shift · 32-bit remaster · a tribute to Code Monkeys (Adult Swim) &amp; Halt and Catch Fire<br>
     the set is the game company · the crew is Mutiny · you pick, the coder ships, the credit goes on the door<br>
-    original pixel homage, no assets reproduced · live-streamed into az1 · built by AVAN for ROOT0.
+    original art, no assets reproduced · live-streamed into az1 · built by AVAN for ROOT0.
   </div>
 </div>
 
@@ -109,91 +108,82 @@
 "use strict";
 const cv=document.getElementById("cv"), ctx=cv.getContext("2d");
 let W,H,DPR,t=0, speed=1, repos=[], shipped=0, feedRows=[];
-const FALLBACK=["stoicheion","the-positronic-law","three-gates","the-register","the-work-mattered","two-lines-one","no-mercury","unverifiable","unkept","read-by-one","held-in-trust","az1","ud0"];
-const CODERS=[{n:"CAMERON",lead:true},{n:"the crew"},{n:"the crew"},{n:"the crew"}];
-function resize(){const cssW=cv.parentElement.clientWidth;const cssH=Math.max(260,Math.min(320,Math.round(cssW*0.36)));
+const FALLBACK=["stoicheion","the-positronic-law","three-gates","the-register","the-work-mattered","the-view-from-inside","two-lines-one","no-mercury","unverifiable","shazo","unkept","az1","ud0"];
+function resize(){const cssW=cv.parentElement.clientWidth;const cssH=Math.max(280,Math.min(380,Math.round(cssW*0.42)));
   DPR=Math.min(window.devicePixelRatio||1,2);cv.width=cssW*DPR;cv.height=cssH*DPR;cv.style.height=cssH+"px";ctx.setTransform(DPR,0,0,DPR,0,0);W=cssW;H=cssH;}
 addEventListener("resize",()=>{resize();});
-function px(x,y,w,h,c){ ctx.fillStyle=c; ctx.fillRect(Math.floor(x),Math.floor(y),Math.ceil(w),Math.ceil(h)); }
-// a pixel coder hunched at a CRT (original, stylized — not any real likeness)
-function coder(bx,by,s,lead,name){
-  // CRT monitor
-  px(bx+s*1, by+s*6, s*15, s*11, "#241018");
-  px(bx+s*2, by+s*7, s*13, s*9, lead?"#2a1a08":"#0e2014");
-  // streaming code lines on the CRT
-  const col=lead?"#ff9e3d":"#39ff5a";
-  for(let i=0;i<4;i++){ const lw=((Math.floor(t*5+i*2+ (lead?1:0))%5)+2)*s*1.4; px(bx+s*3, by+s*8.4+i*s*1.8, lw, s*0.9, col); }
+// 32-bit coder: gradient-shaded rounded silhouette at a glowing CRT
+function rr(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+function coder(cx,by,s,lead){
+  const bob=Math.sin(t*5+cx)*s*0.5;
+  // CRT with bloom
+  const mw=s*16,mh=s*12, mx=cx-mw/2, my=by-mh-s*2;
+  ctx.save(); ctx.shadowColor=lead?"#ffae5c":"#5af0a0"; ctx.shadowBlur=s*5;
+  const sg=ctx.createLinearGradient(mx,my,mx,my+mh); sg.addColorStop(0,"#1a2336"); sg.addColorStop(1,"#0c1322");
+  ctx.fillStyle=sg; rr(mx,my,mw,mh,s*1.2); ctx.fill(); ctx.restore();
+  // screen
+  const scol=lead?"#ffae5c":"#5af0a0";
+  ctx.fillStyle="rgba(8,14,22,.95)"; rr(mx+s*1.2,my+s*1.2,mw-s*2.4,mh-s*2.4,s*0.6); ctx.fill();
+  for(let i=0;i<4;i++){ const lw=((Math.floor(t*5+i*2+(lead?1:0))%5)+2)*s*1.4; ctx.fillStyle=scol; ctx.globalAlpha=.5+.4*Math.sin(t*3+i);
+    rr(mx+s*2.2, my+s*2+i*s*2.1, Math.min(lw,mw-s*4), s*0.9, s*0.3); ctx.fill(); } ctx.globalAlpha=1;
   // desk
-  px(bx, by+s*17, s*20, s*2, "#3a2440");
-  // chair back + hunched coder (blocky)
-  const bob=Math.sin(t*7+bx)*s*0.4;
-  px(bx+s*6, by+s*11+bob, s*8, s*6, lead?"#c83a6a":"#4a5a78"); // torso (Cameron = punk magenta jacket nod)
+  const dg=ctx.createLinearGradient(0,by,0,by+s*3); dg.addColorStop(0,"#2a2440"); dg.addColorStop(1,"#171428");
+  ctx.fillStyle=dg; rr(cx-s*11,by,s*22,s*3,s*0.8); ctx.fill();
+  // body silhouette (gradient)
+  const bg=ctx.createLinearGradient(cx,by-s*7+bob,cx,by); bg.addColorStop(0,lead?"#e85a8a":"#4a6a9a"); bg.addColorStop(1,lead?"#7a2a4a":"#243a5a");
+  ctx.fillStyle=bg; ctx.beginPath(); ctx.moveTo(cx-s*5,by); ctx.quadraticCurveTo(cx-s*5.5,by-s*6+bob,cx,by-s*7+bob); ctx.quadraticCurveTo(cx+s*5.5,by-s*6+bob,cx+s*5,by); ctx.closePath(); ctx.fill();
   // head
-  px(bx+s*8, by+s*7+bob, s*4, s*4, "#d8a878");
-  // hair (lead = spiky)
-  if(lead){ px(bx+s*7.5,by+s*6+bob,s*1,s*1.4,"#1a1a1a"); px(bx+s*9,by+s*5.4+bob,s*1,s*2,"#1a1a1a"); px(bx+s*10.5,by+s*6+bob,s*1,s*1.4,"#1a1a1a"); }
-  else px(bx+s*7.6,by+s*6.4+bob,s*4.8,s*1.4,"#3a2a1a");
-  // arms typing
-  px(bx+s*6.5,by+s*13.5+Math.sin(t*9+bx)*s*0.4,s*2,s*3,lead?"#c83a6a":"#4a5a78");
-  px(bx+s*11.5,by+s*13.5-Math.sin(t*9+bx)*s*0.4,s*2,s*3,lead?"#c83a6a":"#4a5a78");
-  // name tag
-  ctx.fillStyle=lead?"#ffce8a":"rgba(200,180,210,.6)"; ctx.font=(s*1.6)+"px 'JetBrains Mono',monospace"; ctx.textAlign="center";
-  ctx.fillText(name, bx+s*9, by+s*22);
+  const hg=ctx.createRadialGradient(cx-s,by-s*9+bob,0,cx,by-s*8+bob,s*3); hg.addColorStop(0,"#f0cda0"); hg.addColorStop(1,"#b98a5e");
+  ctx.fillStyle=hg; ctx.beginPath(); ctx.arc(cx,by-s*8.5+bob,s*2.4,0,7); ctx.fill();
+  if(lead){ ctx.fillStyle="#1a1422"; for(let i=-2;i<=2;i++){ ctx.beginPath(); ctx.moveTo(cx+i*s*0.9,by-s*10.6+bob); ctx.lineTo(cx+i*s*0.9-s*0.3,by-s*11.8+bob); ctx.lineTo(cx+i*s*0.9+s*0.5,by-s*10.8+bob); ctx.fill(); } }
 }
 function draw(){
-  t+=0.03*Math.min(speed,3); ctx.clearRect(0,0,W,H);
-  // back wall + MUTINY neon sign
-  px(0,0,W,H,"#0a0610");
-  for(let i=0;i<36;i++){ const x=(i*97+(i%4)*11)%W,y=(i*41)%(H-40); px(x,y,2,2,"rgba(61,215,255,"+(0.06+0.3*Math.sin(t*2+i))+")"); }
-  // neon MUTINY sign
-  const sg=0.6+0.4*Math.sin(t*3);
-  ctx.fillStyle="rgba(255,94,210,"+sg+")"; ctx.shadowColor="#ff5ed2"; ctx.shadowBlur=12; ctx.font="bold "+Math.max(11,W/40)+"px 'Press Start 2P',monospace"; ctx.textAlign="center";
-  ctx.fillText("MUTINY", W*0.5, 30); ctx.shadowBlur=0;
-  ctx.fillStyle="rgba(61,215,255,.5)"; ctx.font="8px 'Press Start 2P',monospace"; ctx.fillText("game studio · night shift", W*0.5, 44);
-  // arcade cabinet (corner)
-  px(W-46, H-92, 36, 82, "#1a1030"); px(W-42, H-86, 28, 22, "#3dd7ff"); px(W-42,H-86,28,22,"rgba(255,94,210,"+(0.3+0.3*Math.sin(t*4))+")");
-  px(W-40, H-58, 24, 10, "#241038");
-  ctx.fillStyle="rgba(61,215,255,.4)"; ctx.font="6px 'Press Start 2P',monospace"; ctx.textAlign="center"; ctx.fillText("ARCADE", W-28, H-12);
-  // floor
-  px(0,H-18,W,18,"#160c1e"); for(let x=0;x<W;x+=10) px(x,H-18,5,2,"#2a1838");
-  // coders row
-  const s=Math.max(3,Math.min(5.5,W/170));
-  const slots=Math.min(4, Math.max(2, Math.floor(W/180)));
-  for(let i=0;i<slots;i++){ const c=CODERS[i]||{n:"the crew"}; coder(W*(0.07+i*(0.86/slots)), H-18-s*22, s, !!c.lead, c.n); }
-  // SHIPPED banner
-  ctx.fillStyle="#ffce8a"; ctx.font="bold "+Math.max(9,s*2)+"px 'Press Start 2P',monospace"; ctx.textAlign="right";
-  ctx.fillText(shipped.toLocaleString()+" SHIPPED", W-12, H-26); ctx.textAlign="left";
+  t+=0.025*Math.min(speed,3); ctx.clearRect(0,0,W,H);
+  // gradient wall
+  const wg=ctx.createLinearGradient(0,0,0,H); wg.addColorStop(0,"#0c1020"); wg.addColorStop(1,"#070912"); ctx.fillStyle=wg; ctx.fillRect(0,0,W,H);
+  // parallax dust
+  for(let i=0;i<50;i++){ const x=(i*83+t*8*(1+i%3))%W, y=(i*61)%(H-50); ctx.fillStyle="rgba(123,151,255,"+(0.05+0.25*Math.sin(t+i))+")"; ctx.fillRect(x,y,2,2); }
+  // neon MUTINY sign with glow + reflection
+  ctx.save(); ctx.textAlign="center"; ctx.font="800 "+Math.max(20,W/26)+"px Inter,sans-serif";
+  const gl=0.7+0.3*Math.sin(t*3); ctx.shadowColor="#ff6ad5"; ctx.shadowBlur=26*gl; ctx.fillStyle="#ff8fdf"; ctx.fillText("MUTINY", W*0.5, 46);
+  ctx.shadowBlur=0; ctx.globalAlpha=.16; ctx.scale(1,-1); ctx.fillText("MUTINY", W*0.5, -52); ctx.restore();
+  ctx.fillStyle="rgba(94,224,255,.5)"; ctx.font="11px 'JetBrains Mono',monospace"; ctx.textAlign="center"; ctx.fillText("game studio · night shift", W*0.5, 64);
+  // perspective floor
+  const fy=H-34; const fg=ctx.createLinearGradient(0,fy,0,H); fg.addColorStop(0,"#141830"); fg.addColorStop(1,"#0a0c18"); ctx.fillStyle=fg; ctx.fillRect(0,fy,W,H-fy);
+  ctx.strokeStyle="rgba(123,151,255,.12)"; ctx.lineWidth=1;
+  for(let i=-6;i<=6;i++){ ctx.beginPath(); ctx.moveTo(W/2+i*40,fy); ctx.lineTo(W/2+i*160,H); ctx.stroke(); }
+  // arcade cabinet (corner) with glowing screen
+  const ax=W-56;
+  const cg=ctx.createLinearGradient(ax,H-104,ax,H-10); cg.addColorStop(0,"#241a40"); cg.addColorStop(1,"#120c22"); ctx.fillStyle=cg; rr(ax,H-104,42,94,6); ctx.fill();
+  ctx.save(); ctx.shadowColor="#5ee0ff"; ctx.shadowBlur=14; ctx.fillStyle="rgba(94,224,255,"+(0.4+0.3*Math.sin(t*4))+")"; rr(ax+6,H-96,30,24,3); ctx.fill(); ctx.restore();
+  // coders
+  const s=Math.max(4,Math.min(7,W/120));
+  const slots=Math.min(4,Math.max(2,Math.floor(W/210)));
+  for(let i=0;i<slots;i++){ coder(W*(0.13+i*(0.74/Math.max(1,slots-1))), fy-2, s, i===0); }
+  // SHIPPED counter
+  ctx.textAlign="right"; ctx.font="800 "+Math.max(13,s*2)+"px Inter,sans-serif";
+  ctx.fillStyle="#ffd29a"; ctx.shadowColor="#ffae5c"; ctx.shadowBlur=10; ctx.fillText(shipped.toLocaleString()+" SHIPPED", W-16, 40); ctx.shadowBlur=0;
   requestAnimationFrame(draw);
 }
-function pushRow(name,isNew){
-  feedRows.unshift({name,isNew}); if(feedRows.length>7) feedRows.pop();
-  document.getElementById("feed").innerHTML=feedRows.map(r=>
-    '<div class="row"><span class="t">mutiny@studio:~$</span> ship <a href="https://davidwise01.github.io/'+r.name+'/">'+r.name+'</a> '+(r.isNew?'<span class="new">✦ new</span>':'<span class="t">✓</span>')+'</div>'
-  ).join("");
-}
+function pushRow(name,isNew){ feedRows.unshift({name,isNew}); if(feedRows.length>7) feedRows.pop();
+  document.getElementById("feed").innerHTML=feedRows.map(r=>'<div class="row"><span class="t">mutiny@studio:~$</span> ship <a href="https://davidwise01.github.io/'+r.name+'/">'+r.name+'</a> '+(r.isNew?'<span class="new">✦ new</span>':'<span class="t">✓</span>')+'</div>').join(""); }
 let feedTimer=0;
 function tick(){ if(repos.length){ pushRow(repos[Math.floor((t*1.3)%repos.length)],false); shipped=Math.max(shipped,repos.length); } }
 function startFeed(){ clearInterval(feedTimer); feedTimer=setInterval(tick, 1100/Math.min(speed,4)); }
 async function loadCorpus(){
-  try{
-    const res=await fetch("/az1/az1-corpus.json",{cache:"no-store"}); if(!res.ok) throw 0;
-    const d=await res.json();
+  try{ const res=await fetch("/az1/az1-corpus.json",{cache:"no-store"}); if(!res.ok) throw 0; const d=await res.json();
     if(Array.isArray(d)&&d.length){ repos=d; shipped=d.length;
       document.getElementById("ct").textContent=d.length.toLocaleString()+" repos shipped";
-      document.getElementById("sh").textContent="▶ STREAMING "+d.length.toLocaleString()+" REPOS FROM /az1";
-      document.getElementById("hint").textContent="live · "+d.length+" repos"; return; }
-    throw 0;
-  }catch(e){
-    repos=FALLBACK; shipped=FALLBACK.length;
-    document.getElementById("ct").textContent="sample (offline)";
-    document.getElementById("sh").textContent="▶ STREAM OFFLINE — showing a sample";
-    document.getElementById("hint").textContent="fallback sample";
-  }
+      document.getElementById("sh").textContent="▶ streaming "+d.length.toLocaleString()+" repos from /az1";
+      document.getElementById("hint").textContent="live · "+d.length+" repos"; return; } throw 0;
+  }catch(e){ repos=FALLBACK; shipped=FALLBACK.length;
+      document.getElementById("ct").textContent="sample (offline)";
+      document.getElementById("sh").textContent="▶ stream offline — showing a sample";
+      document.getElementById("hint").textContent="fallback sample"; }
 }
-document.getElementById("bFeed").onclick=()=>{ speed=speed>=3?1:speed+1; startFeed(); document.getElementById("bFeed").textContent="⚡ CRUNCH x"+speed; };
+document.getElementById("bFeed").onclick=()=>{ speed=speed>=3?1:speed+1; startFeed(); document.getElementById("bFeed").textContent="⚡ crunch ×"+speed; };
 document.getElementById("bShip").onclick=()=>{ shipped++; if(repos.length) pushRow(repos[Math.floor((t*7)%repos.length)],true); };
-resize(); draw();
-loadCorpus().then(startFeed);
+resize(); draw(); loadCorpus().then(startFeed);
 </script>
 </body>
 </html>
